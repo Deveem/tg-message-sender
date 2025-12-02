@@ -24,6 +24,6 @@ def send_message():
 
     try:
         r = requests.post(TG_URL, json=payload, timeout=5)
-        return jsonify({"status": "ok", "telegram_response": r.json()})
+        return jsonify({"status": "ok"})
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
