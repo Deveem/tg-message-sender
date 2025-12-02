@@ -11,15 +11,15 @@ TG_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
 def send_message():
     data = request.json
 
-    text = data.get("text")
+    message = data.get("message")
     chat_id = data.get("chat_id", TELEGRAM_CHAT_ID)  # default group
 
-    if not text:
-        return jsonify({"status": "error", "message": "text is required"}), 400
+    if not message:
+        return jsonify({"status": "error", "message": "message is required"}), 400
 
     payload = {
         "chat_id": chat_id,
-        "text": text
+        "text": message
     }
 
     try:
